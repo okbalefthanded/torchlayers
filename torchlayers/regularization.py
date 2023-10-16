@@ -178,8 +178,10 @@ class WeightDecay(torch.nn.Module):
                 ):
                     param.grad = self.regularize(param)
 
-    def forward(self, *args, **kwargs):
-        return self.module(*args, **kwargs)
+#    def forward(self, *args, **kwargs):
+#        return self.module(*args, **kwargs)
+    def forward(self, x):
+        return self.module(x)
 
     def extra_repr(self) -> str:
         representation = "weight_decay={}".format(self.weight_decay)
